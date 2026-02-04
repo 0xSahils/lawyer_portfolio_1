@@ -17,9 +17,9 @@ import { cn } from "@/lib/utils"
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/practice-areas", label: "Practice Areas", icon: Scale },
-  { href: "/admin/team", label: "Team Members", icon: Users },
+  // { href: "/admin/team", label: "Team Members", icon: Users },
   { href: "/admin/blog", label: "Blog Posts", icon: FileText },
-  { href: "/admin/cases", label: "Case Results", icon: Trophy },
+  { href: "/admin/case-results", label: "Case Results", icon: Trophy },
   { href: "/admin/testimonials", label: "Testimonials", icon: MessageSquare },
   { href: "/admin/messages", label: "Messages", icon: Mail },
   { href: "/admin/settings", label: "Settings", icon: Settings },

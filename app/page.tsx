@@ -17,6 +17,7 @@ import { ContactSection } from "@/components/law-firm/contact-section"
 import { Footer } from "@/components/law-firm/footer"
 
 export default function HomePage() {
+  // Main landing page
   return (
     <main className="min-h-screen">
       <TopBar />

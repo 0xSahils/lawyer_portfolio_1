@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Check, Trash2 } from "lucide-react"
-import { markMessageAsRead, deleteMessage } from "@/app/admin/messages/actions"
+import { markMessageAsRead, deleteMessage } from "@/app/admin/(protected)/messages/actions"
 
 export function MessageActions({ messageId, isRead }: { messageId: number; isRead: boolean }) {
   return (

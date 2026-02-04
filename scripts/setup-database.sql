@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
   message TEXT NOT NULL,
   practice_area_id INT REFERENCES practice_areas(id),
   status VARCHAR(50) DEFAULT 'new',
+  read BOOLEAN DEFAULT false,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -94,6 +95,8 @@ CREATE TABLE IF NOT EXISTS admin_users (
   password_hash VARCHAR(255) NOT NULL,
   name VARCHAR(255),
   role VARCHAR(50) DEFAULT 'admin',
+  session_token VARCHAR(255),
+  session_expires TIMESTAMP,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   last_login TIMESTAMP
 );
