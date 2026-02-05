@@ -2,17 +2,16 @@
 
 import { User } from "@/lib/auth"
 import { Button } from "@/components/ui/button"
-import { LogOut, Menu } from "lucide-react"
+import { LogOut } from "lucide-react"
 import { logout } from "@/app/admin/actions"
+import { MobileSidebar } from "./mobile-sidebar"
 
 export function AdminHeader({ user }: { user: User }) {
   return (
     <header className="bg-background border-b border-border sticky top-0 z-40">
       <div className="flex items-center justify-between p-4">
         <div className="flex items-center gap-4">
-          <button className="lg:hidden text-navy" aria-label="Toggle menu">
-            <Menu className="h-6 w-6" />
-          </button>
+          <MobileSidebar />
           <h1 className="text-xl font-semibold text-navy font-serif">Dashboard</h1>
         </div>
         

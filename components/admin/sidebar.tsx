@@ -14,7 +14,7 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-const navItems = [
+export const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/practice-areas", label: "Practice Areas", icon: Scale },
   // { href: "/admin/team", label: "Team Members", icon: Users },
