@@ -12,6 +12,7 @@ import { QuickBookingSection } from "@/components/law-firm/quick-booking-section
 import { ContributionSection } from "@/components/law-firm/contribution-section"
 import { BlogsSection } from "@/components/law-firm/blogs-section"
 import { TestimonialsSection } from "@/components/law-firm/testimonials-section"
+import { GoogleReviewsSection } from "@/components/law-firm/google-reviews-section"
 import { InstagramSection } from "@/components/law-firm/instagram-section"
 import { ContactSection } from "@/components/law-firm/contact-section"
 import { Footer } from "@/components/law-firm/footer"
@@ -34,6 +35,7 @@ export default function HomePage() {
       <ContributionSection />
       <BlogsSection />
       <TestimonialsSection />
+      <GoogleReviewsSection />
       <InstagramSection />
       <ContactSection />
       <Footer />

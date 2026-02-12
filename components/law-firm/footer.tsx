@@ -7,6 +7,7 @@ const quickLinks = [
   { label: "Practice Areas", href: "#practice-areas" },
   { label: "Experience", href: "#experience" },
   { label: "Testimonials", href: "#testimonials" },
+  { label: "Reviews", href: "#google-reviews" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -116,7 +117,7 @@ export function Footer() {
       <div className="border-t border-navy-light">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-            <p>&copy; {new Date().getFullYear()} John Mehta, Attorney at Law. All rights reserved.</p>
+            <p suppressHydrationWarning>&copy; {new Date().getFullYear()} John Mehta, Attorney at Law. All rights reserved.</p>
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-gold transition-colors">Terms of Service</Link>

@@ -14,6 +14,7 @@ const navItems = [
   { label: "Achievements", href: "#achievements" },
   { label: "Gallery", href: "#gallery" },
   { label: "Blog", href: "#blogs" },
+  { label: "Reviews", href: "#google-reviews" },
   { label: "Contact", href: "#contact" },
 ]
 
