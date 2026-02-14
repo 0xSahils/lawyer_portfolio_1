@@ -1,43 +1,41 @@
-import { Award, Scale, ThumbsUp } from "lucide-react"
+"use client"
 
-const features = [
-  {
-    icon: Award,
-    title: "100% Success Rate",
-    description: "Proven track record of winning cases with dedication and strategic legal expertise.",
-  },
-  {
-    icon: Scale,
-    title: "Expert Legal Services",
-    description: "Comprehensive legal solutions tailored to your unique situation and needs.",
-  },
-  {
-    icon: ThumbsUp,
-    title: "Highly Recommended",
-    description: "Trusted by hundreds of satisfied clients for exceptional legal representation.",
-  },
+import { motion } from "framer-motion"
+import { Briefcase, Users, Award, Trophy } from "lucide-react"
+import { CountUp } from "@/components/motion/count-up"
+import { StaggerWrap, staggerItem } from "@/components/motion/stagger-wrap"
+
+const stats = [
+  { icon: Briefcase, value: "500+", label: "Cases Won" },
+  { icon: Users, value: "1000+", label: "Happy Clients" },
+  { icon: Award, value: "15+", label: "Years of Practice" },
+  { icon: Trophy, value: "50+", label: "Awards Won" },
 ]
 
 export function Features() {
   return (
-    <section className="bg-navy-light py-16 -mt-20 relative z-20">
+    <section className="relative bg-navy-light py-16 lg:py-20 -mt-px z-20">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="flex items-start gap-4 p-6 bg-navy/50 rounded-lg border border-gold/20 hover:border-gold/40 transition-colors"
+        <StaggerWrap
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+          staggerDelay={0.07}
+        >
+          {stats.map((stat) => (
+            <motion.div
+              key={stat.label}
+              variants={staggerItem}
+              className="group text-center"
             >
-              <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-gold flex items-center justify-center">
-                <feature.icon className="h-8 w-8 text-gold" />
+              <div className="inline-flex w-16 h-16 lg:w-20 lg:h-20 rounded-full border-2 border-gold/30 flex items-center justify-center mb-5 bg-navy/40 group-hover:border-gold/60 group-hover:bg-gold/5 transition-all duration-300">
+                <stat.icon className="h-8 w-8 lg:h-9 lg:w-9 text-gold" />
               </div>
-              <div>
-                <h3 className="text-gold font-semibold text-lg mb-2 font-serif">{feature.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
-              </div>
-            </div>
+              <p className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white font-serif mb-2 tabular-nums">
+                <CountUp value={stat.value} />
+              </p>
+              <p className="text-gray-400 text-sm lg:text-base font-medium">{stat.label}</p>
+            </motion.div>
           ))}
-        </div>
+        </StaggerWrap>
       </div>
     </section>
   )

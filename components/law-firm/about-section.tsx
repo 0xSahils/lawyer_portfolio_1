@@ -1,52 +1,90 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { StaggerWrap, staggerItem } from "@/components/motion/stagger-wrap"
+import { SectionHeader } from "@/components/law-firm/section-header"
+import { Button } from "@/components/ui/button"
+import { Download, Mail, Phone, MapPin, Clock, Scale, GraduationCap, Building2 } from "lucide-react"
+import Link from "next/link"
+
+const credentials = [
+  { icon: Scale, label: "Enrollment", value: "Bar Council, 1994" },
+  { icon: GraduationCap, label: "Degree", value: "LL.M., National Law University" },
+  { icon: Building2, label: "Court", value: "Supreme Court of India" },
+  { icon: Mail, label: "Mail", value: "john@mehtalaw.com" },
+  { icon: Phone, label: "Phone", value: "+1 (020) 930 542" },
+  { icon: MapPin, label: "Location", value: "New York, NY" },
+  { icon: Clock, label: "Availability", value: "By Appointment" },
+]
+
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Image */}
-          <div className="relative">
-            <div className="relative">
-              {/* Main Image */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <motion.div
+            className="relative order-2 lg:order-1"
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-48px" }}
+            transition={{ type: "spring", stiffness: 320, damping: 28 }}
+          >
+            <div className="relative max-w-md">
+              <div className="absolute -inset-3 rounded-xl bg-gold/5 border border-gold/20" />
               <img
                 src="/images/ceo-portrait.jpg"
-                alt="John Mehta - Attorney at Law"
-                className="w-full max-w-md h-[500px] object-cover object-top rounded-lg shadow-xl"
+                alt="John Mehta - Senior Advocate, Attorney at Law"
+                className="relative w-full aspect-3/4 object-cover object-top rounded-lg shadow-xl"
               />
-              {/* Name Tag */}
-              <div className="absolute left-0 bottom-20 bg-gold text-navy px-4 py-2 font-serif italic text-lg transform -rotate-90 origin-bottom-left">
+              <div className="absolute left-0 bottom-24 bg-gold text-navy px-4 py-2 font-serif italic text-lg transform -rotate-90 origin-bottom-left font-semibold">
                 John Mehta
               </div>
-              {/* Decorative Border */}
-              <div className="absolute top-4 left-4 right-4 bottom-4 border-2 border-gold/30 rounded-lg pointer-events-none" />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right - Content */}
-          <div className="space-y-6">
-            <div>
-              <p className="text-gold text-sm uppercase tracking-widest mb-2">About Me</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy font-serif text-balance">
-                Welcome to My Legal Practice
-              </h2>
-            </div>
-            
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                With over 15 years of experience in the legal field, I have dedicated my career to providing exceptional legal representation to individuals and businesses alike. My practice is built on the principles of integrity, dedication, and unwavering commitment to my clients.
+          <StaggerWrap className="space-y-8 order-1 lg:order-2" staggerDelay={0.06}>
+            <motion.div variants={staggerItem}>
+              <SectionHeader
+                overline="About Me"
+                title="John Mehta"
+                className="text-left mb-6"
+              />
+              <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
+                I&apos;m a lawyer dedicated to my work. With 15+ years as a professional advocate, I have acquired the skills and knowledge necessary to make your case a success. I enjoy every step of the legal process—from discussion and collaboration to arguing before the court.
               </p>
-              <p>
-                I specialize in corporate law, civil litigation, and family law matters. My approach combines thorough legal expertise with a deep understanding of my clients&apos; needs, ensuring personalized solutions that achieve the best possible outcomes.
-              </p>
-            </div>
-
-            {/* Signature */}
-            <div className="pt-4">
-              <p className="font-serif italic text-3xl text-navy mb-1" style={{ fontFamily: 'cursive' }}>
-                John Mehta
-              </p>
-              <p className="text-gold text-sm font-semibold">Attorney at Law</p>
-            </div>
-          </div>
+            </motion.div>
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              variants={staggerItem}
+            >
+              {credentials.map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-start gap-3 p-4 rounded-lg bg-secondary/80 border border-border/60"
+                >
+                  <item.icon className="h-5 w-5 text-gold shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-gold text-xs font-semibold uppercase tracking-wider">
+                      {item.label}
+                    </p>
+                    <p className="text-foreground text-sm font-medium">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+            <motion.div variants={staggerItem}>
+              <Button
+                asChild
+                variant="outline"
+                className="border-2 border-gold/60 text-navy hover:bg-gold/10 hover:border-gold px-6 py-5"
+              >
+                <Link href="#">
+                  <Download className="mr-2 h-5 w-5" />
+                  Download CV
+                </Link>
+              </Button>
+            </motion.div>
+          </StaggerWrap>
         </div>
       </div>
     </section>
